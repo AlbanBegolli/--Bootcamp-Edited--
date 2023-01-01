@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- Create the form with inputs for the username and password -->
+    <form id="login-form">
+      <label for="username"></label><br>
+      <input type="text" id="username" name="username" placeholder="Type Username"><br>
+      <label for="password"></label><br>
+      <input type="password" id="password" name="password" placeholder="Type Password"><br><br>
+      <input type="submit" value="Submit" id="submit">
+    </form>
+    
+    <!-- Add some JavaScript to handle the form submission -->
+    <script>
+      localStorage.setItem('username','Admin');
+      localStorage.setItem('password','1234');
+
+      // Get a reference to the form element
+      const form = document.getElementById('login-form');
+      
+      // Add an event listener to the form to handle the submission
+      form.addEventListener('submit', function(event) {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+        
+        // Get the values of the username and password inputs
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        
+        // Check if the username is "Admin" and the password is "1234"
+        if (username === localStorage.getItem('username') && password === localStorage.getItem('password')) {
+          // If the username and password are correct, redirect to YouTube
+          window.alert('Submission successful');
+          window.location.href = 'file:///C:/Users/Alban/OneDrive/Desktop/Bootcamp%20Edited/Form/Form.html';
+          //window.location.href = 'https://fortune-mewing-skateboard.glitch.me/';
+        } else {
+          // If the username or password are incorrect, display an error message
+          alert('Incorrect username or password');
+        }
+      });
+      </script>
